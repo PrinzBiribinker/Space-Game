@@ -3,38 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <title>Kapitel 1</title>
-  <style>
-    body {
-      background: radial-gradient(circle at center, #1a0033, #000);
-      color: white;
-      font-family: 'Orbitron', sans-serif;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-    }
-    .portal {
-      margin-top: 30px;
-      padding: 15px 30px;
-      border: 2px solid #00bfff;
-      border-radius: 20px;
-      text-decoration: none;
-      color: white;
-      font-size: 1.1em;
-      transition: all 0.3s ease;
-    }
-    .portal:hover {
-      background: #00bfff33;
-      box-shadow: 0 0 20px #00bfff;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Kapitel 1</h1>
-  <p>Du trittst durch das Portal und findest dich in einem Meer aus Sternen wieder...</p>
+  <div id="stars"></div>
 
-  <a href="kapitel2.html" class="portal">Weiter zum nächsten Portal ✧</a>
+  <h1>Kapitel 1</h1>
+  <p>Du stehst an einer Weggabelung:  
+  Der eine Pfad führt bergauf in das Licht,  
+  der andere bergab in die Dunkelheit.</p>
+
+  <a href="bergauf.html" class="portal">✨ Bergauf</a>
+  <a href="bergab.html" class="portal">🌑 Bergab</a>
+
+  <script src="stars.js"></script>
 </body>
 </html>
