@@ -4,11 +4,11 @@ const colors = [
 
 const starsContainer = document.getElementById('stars');
 
-for (let i = 0; i < 150; i++) {
+for (let i = 0; i < 200; i++) {
   const star = document.createElement('div');
   star.className = 'star';
 
-  // Zufällige Position
+  // Zufällige Startposition
   star.style.top = Math.random() * 100 + '%';
   star.style.left = Math.random() * 100 + '%';
 
@@ -17,18 +17,32 @@ for (let i = 0; i < 150; i++) {
   star.style.width = size + 'px';
   star.style.height = size + 'px';
 
-  // Zufällige Farbe aus der Palette
+  // Farbe aus Palette
   star.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
 
-  // Verschiedene Animationsgeschwindigkeiten
-  const twinkleDuration = 2 + Math.random() * 3;
-  const moveDuration = 5 + Math.random() * 10;
-
-  star.style.animation = `twinkle ${twinkleDuration}s infinite alternate, moveStar ${moveDuration}s linear infinite`;
-
-  // Optional: leichten horizontalen Drift für Parallax
-  star.style.transform = `translateX(${Math.random() * 5 - 2.5}px)`;
+  // Geschwindigkeit
+  const speed = 20 + Math.random() * 50; // Pixel pro Sekunde
+  star.dataset.speed = speed;
 
   starsContainer.appendChild(star);
 }
+
+// Animation: Sterne bewegen sich horizontal
+function animateStars() {
+  const stars = document.querySelectorAll('.star');
+  stars.forEach(star => {
+    let left = parseFloat(star.style.left);
+    left += star.dataset.speed / 1000; // Geschwindigkeit
+    if (left > 100) left = 0; // wieder von links anfangen
+    star.style.left = left + '%';
+  });
+  requestAnimationFrame(animateStars);
+}
+
+animateStars();
+
+
+  starsContainer.appendChild(star);
+}
+
 
